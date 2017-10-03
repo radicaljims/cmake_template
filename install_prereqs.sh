@@ -1,1 +1,1 @@
-brew install cmake sdl ninja
+brew install cmake sdl2 ninja
