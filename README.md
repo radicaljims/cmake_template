@@ -6,3 +6,5 @@
 4. Run: `./build/target/ogl.app/Contents/MacOS/ogl`
 
 Tuned for OSX, probably need some tweaks for Windows (GLEW?) and Linux.
+
+(Although, I say tuned but it doesn't generate XCode project files, that's probably easy...)
