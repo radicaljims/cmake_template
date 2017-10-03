@@ -4,13 +4,11 @@
 #include <OpenGL/gl3.h>
 #include "SDL.h"
 
+#include "ogl.h"
+
 SDL_DisplayMode display;
 SDL_Window* window;
 SDL_GLContext context;
-
-GLuint program_id = 0;
-GLint vbo = 0;
-GLint ibo = 0;
 
 void initialize() {
 
@@ -28,19 +26,14 @@ void initialize() {
                             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                             800, 600,
                             SDL_WINDOW_ALLOW_HIGHDPI |
-                            SDL_WINDOW_OPENGL); 
+                            SDL_WINDOW_OPENGL);
 
   context = SDL_GL_CreateContext(window);
 
+  ogl::initialize();
+
 }
 
-void render() {
-
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glClearColor(1.0, 1.0, 0.0, 1.0);
-
-  SDL_GL_SwapWindow(window);
-}
 
 int main(int argc, char** argv) {
 
@@ -61,7 +54,9 @@ int main(int argc, char** argv) {
       }
     }
 
-    render();
+    ogl::render();
+
+    SDL_GL_SwapWindow(window);
 
   }
 
