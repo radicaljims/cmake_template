@@ -37,17 +37,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${TARGET_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${LIB_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${LIB_DIR})
 
-
-# set(App_SRCS
-#   app.cpp
-# )
-
-# add_library(App STATIC ${App_SRCS})
-
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
-
-set(SOURCES src/main.cpp)
 
 include_directories(
   ${INCLUDE_DIR}
@@ -60,9 +51,8 @@ link_libraries(
   ${OPENGL_LIBRARIES}
 )
 
+set(SOURCES src/main.cpp)
 add_executable(${APPLICATION_NAME} ${GUI_TYPE} ${SOURCES})
 
 set_property(TARGET ${APPLICATION_NAME} PROPERTY CXX_STANDARD 11)
 set_property(TARGET ${APPLICATION_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
-
-# add_subdirectory(src)
